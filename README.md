@@ -19,9 +19,20 @@ module "cloudability" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| external_id | The external identifier to use, given to you by Cloudability | string | - | yes |
-| role_name | The name of the role Cloudability will use | string | `CloudabilityRole` | no |
-| trusted_account_id | The Cloudability account this role will trust | string | `165736516723` | no |
+| automation_policy_name | Name of automation resource policy | string | `CloudabilityAutomationPolicy` | no |
+| external_id | The external identifier to use, given to you by Cloudability | string |  | yes |
+| monitor_policy_name | Name of monitor resource policy | string | `CloudabilityMonitorResourcesPolicy` | no |
+| policy_path | Path in IAM for policies | string | `/` | no |
+| role_name | Name of Cloudability Role | string | `CloudabilityRole` | no |
+| role_path | Path in IAM for role | string | `/` | no |
+| trusted_account_id | Trusted Account from Cloudability | string | `165736516723` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| role_arn | IAM Role arn of cloudability |
+| role_id | IAM Role id of cloudability |
 
 ## License
 
