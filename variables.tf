@@ -30,4 +30,5 @@ variable "role_name" {
 
 variable "external_id" {
   description = "The external identifier to use, given to you by Cloudability"
+  default     = ""
 }
