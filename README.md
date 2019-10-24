@@ -36,6 +36,7 @@ _Without the external_id the role is not created_
 ## Role already exists
 
 When it already exists terraform gives this error:
+
 ```
 * aws_iam_role.cloudability_role: Error creating IAM Role CloudabilityRole: EntityAlreadyExists: Role with name CloudabilityRole already exists.
 	status code: 409, request id: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
@@ -44,8 +45,9 @@ When it already exists terraform gives this error:
 ### Import The role:
 
 To import the resource Terraform has the following command available:
-`terraform  import  module.cloudability.aws_iam_role.cloudability_role  CloudabilityRole`
-
+```
+terraform  import  module.cloudability.aws_iam_role.cloudability_role  CloudabilityRole
+```
 The wrapper script has this option to include the assume role and run import for this account
 `./runall.nl -b <accountid-description> -t module.cloudability.aws_iam_role.cloudability_role  -v CloudabilityRole`
 
