@@ -68,3 +68,7 @@ terraform  import  module.cloudability.aws_iam_role.cloudability_role  Cloudabil
 |------|-------------|
 | role_arn | IAM Role arn of cloudability |
 | role_id | IAM Role id of cloudability |
+
+## License
+
+Apache 2 License. See [LICENSE](LICENSE) for full details
