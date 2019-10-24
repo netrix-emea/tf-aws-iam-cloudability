@@ -48,30 +48,6 @@ To import the resource Terraform has the following command available:
 ```
 terraform  import  module.cloudability.aws_iam_role.cloudability_role  CloudabilityRole
 ```
-The wrapper script has this option to include the assume role and run import for this account
-`./runall.nl -b <accountid-description> -t module.cloudability.aws_iam_role.cloudability_role  -v CloudabilityRole`
-
-This will output the current policy. Copy the external id from the assume_role_policy and use this in the tfvars
-
-```
-id                    = CloudabilityRole
-arn                   = arn:aws:iam::xxxxxxx:role/CloudabilityRole
-assume_role_policy    = {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"AWS":"arn:aws:iam::xxxxxxxx:user/cloudability"},"Action":"sts:AssumeRole","Condition":{"StringEquals":{"sts:ExternalId":"xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"}}}]}
-create_date           = 2017-11-16T10:58:38Z
-description           =
-force_detach_policies = false
-max_session_duration  = 3600
-name                  = CloudabilityRole
-path                  = /
-unique_id             = xxxxxx
-```
-
-```
-cloudability_external_id = "<UUID given by cloudability or dummy"
-```
-_there needs to be a string in the variable or the module isn't loaded_
-
-
 
 
 ## Inputs
