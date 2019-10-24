@@ -49,7 +49,6 @@ To import the resource Terraform has the following command available:
 terraform  import  module.cloudability.aws_iam_role.cloudability_role  CloudabilityRole
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
