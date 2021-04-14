@@ -34,26 +34,6 @@ variable "role_path" {
   type        = string
 }
 
-variable "monitor_policy_name" {
-  description = "Name of monitor resource policy"
-  default     = "CloudabilityMonitorResourcesPolicy"
-}
-
-variable "automation_policy_name" {
-  description = "Name of automation resource policy"
-  default     = "CloudabilityAutomationPolicy"
-}
-
-variable "policy_path" {
-  description = "Path in IAM for policies"
-  default     = "/"
-}
-
-variable "role_path" {
-  description = "Path in IAM for role"
-  default     = "/"
-}
-
 variable "role_name" {
   description = "Name of Cloudability Role"
   default     = "CloudabilityRole"
