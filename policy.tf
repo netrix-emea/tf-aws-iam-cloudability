@@ -1,6 +1,7 @@
 data "aws_iam_policy_document" "cloudability_automation_policy" {
   statement {
-    actions = ["iam:SimulatePrincipalPolicy",
+    actions = [
+      "iam:SimulatePrincipalPolicy",
       "ec2:DescribeTags",
       "ec2:CreateTags",
       "ec2:CreateSnapshot",
@@ -29,7 +30,8 @@ data "aws_iam_policy_document" "cloudability_automation_policy" {
 
 data "aws_iam_policy_document" "cloudability_monitor_resources_policy" {
   statement {
-    actions = ["iam:SimulatePrincipalPolicy",
+    actions = [
+      "iam:SimulatePrincipalPolicy",
       "cloudwatch:GetMetricStatistics",
       "dynamodb:DescribeTable",
       "dynamodb:ListTables",
@@ -77,22 +79,23 @@ data "aws_iam_policy_document" "cloudability_assume_policy" {
       variable = "sts:ExternalId"
 
       values = [
-        "${var.external_id}",
+        var.external_id,
       ]
     }
   }
 }
 
 resource "aws_iam_policy" "cloudability_monitor_resources_policy" {
-  count  = "${length(var.external_id)>0?1:0}"
-  name   = "${var.monitor_policy_name}"
-  path   = "${var.policy_path}"
-  policy = "${data.aws_iam_policy_document.cloudability_monitor_resources_policy.json}"
+  count  = length(var.external_id) > 0 ? 1 : 0
+  name   = var.monitor_policy_name
+  path   = var.policy_path
+  policy = data.aws_iam_policy_document.cloudability_monitor_resources_policy.json
 }
 
 resource "aws_iam_policy" "cloudability_automation_policy" {
-  count  = "${length(var.external_id)>0?1:0}"
-  name   = "${var.automation_policy_name}"
-  path   = "${var.policy_path}"
-  policy = "${data.aws_iam_policy_document.cloudability_automation_policy.json}"
+  count  = length(var.external_id) > 0 ? 1 : 0
+  name   = var.automation_policy_name
+  path   = var.policy_path
+  policy = data.aws_iam_policy_document.cloudability_automation_policy.json
 }
+
