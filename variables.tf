@@ -1,3 +1,8 @@
+variable "external_id" {
+  description = "The external identifier to use, given to you by Cloudability"
+  default     = ""
+}
+
 variable "trusted_account_id" {
   description = "Trusted Account from Cloudability"
   default     = "165736516723"
