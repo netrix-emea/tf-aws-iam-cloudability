@@ -17,5 +17,6 @@ resource "aws_iam_role_policy_attachment" "cloudability_monitor_resources_policy
   count      = length(var.external_id) > 0 ? 1 : 0
   role       = aws_iam_role.cloudability_role[0].id
   policy_arn = aws_iam_policy.cloudability_monitor_resources_policy[0].arn
+
 }
 
